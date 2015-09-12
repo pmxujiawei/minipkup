@@ -8,6 +8,8 @@ import java.util.List;
 
 import mini.stock.entity.StockHistory;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -20,6 +22,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class CollectDatas {
+	Log log = LogFactory.getLog(CollectDatas.class);
 
 	public List<StockHistory> collectionData(String stockId, int year)
 			throws Exception {

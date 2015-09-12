@@ -40,6 +40,7 @@ public class CollectStocks {
 
 			Document doc = Jsoup.parse(EntityUtils.toString(entity, "gb2312"));
 			Elements es = doc.getElementsByClass("quotebody");
+			int i = 1;
 			if (es.size() > 0) {
 				Element content = es.first();
 				if (null != content) {
@@ -56,10 +57,10 @@ public class CollectStocks {
 						String[] eleArrs = ele.split("\\(");
 						stock.setStockName(eleArrs[0]);
 						stock.setStockId(Integer.parseInt(eleArrs[1]));
-						if (0 == stockInfoDao.updateStockNameById(stock)) {
-							stockInfoDao.insert(stock);
-						}
-						// collectStocks.add(stock);
+						// if (0 == stockInfoDao.updateStockNameById(stock)) {
+						stockInfoDao.insert(stock);
+						System.out.println(i++);
+						// }
 					}
 				} else {
 					log.error("stocks列表抓取不到:" + url);
