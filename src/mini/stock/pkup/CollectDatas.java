@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import mini.common.dao.StockHistoryDao;
 import mini.stock.entity.StockHistory;
 
 import org.apache.commons.logging.Log;
@@ -73,7 +74,7 @@ public class CollectDatas {
 											"yyyy-MM-dd");
 									java.util.Date date;
 									date = sdf.parse(element.text());
-									stock.setDate(date);
+									stock.setBusinessDate(date);
 								} catch (ParseException e) {
 									e.printStackTrace();
 								}
@@ -128,6 +129,9 @@ public class CollectDatas {
 	}
 
 	public static void main(String[] args) throws Exception {
-		new CollectDatas().collectionData("000666", 2015);
+		List<StockHistory> collectionData = new CollectDatas().collectionData(
+				"000666", 2015);
+		// new StockHistoryDao().insert(collectionData.get(0));
+		new StockHistoryDao().batchInsert(collectionData);
 	}
 }

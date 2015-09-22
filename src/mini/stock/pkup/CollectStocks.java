@@ -56,7 +56,7 @@ public class CollectStocks {
 						ele = ele.substring(0, ele.length() - 1);
 						String[] eleArrs = ele.split("\\(");
 						stock.setStockName(eleArrs[0]);
-						stock.setStockId(Integer.parseInt(eleArrs[1]));
+						stock.setStockId(eleArrs[1]);
 						// if (0 == stockInfoDao.updateStockNameById(stock)) {
 						stockInfoDao.insert(stock);
 						System.out.println(i++);

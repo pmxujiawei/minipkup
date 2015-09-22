@@ -17,7 +17,7 @@ public class StockInfoDao extends BaseDao {
 			conn = getConnection();
 			ps = conn.prepareStatement(sql);
 			int i = 1;
-			ps.setInt(i++, stock.getStockId());
+			ps.setString(i++, stock.getStockId());
 			ps.setString(i++, stock.getStockName());
 			ps.setString(i++, stock.getOriginal());
 			return ps.executeUpdate();
@@ -34,7 +34,7 @@ public class StockInfoDao extends BaseDao {
 			conn = getConnection();
 			ps = conn.prepareStatement(sql);
 			int i = 1;
-			ps.setInt(i++, stock.getStockId());
+			ps.setString(i++, stock.getStockId());
 			ps.setDate(i++, stock.getRecentPickDate());
 			return ps.executeUpdate();
 		} finally {
@@ -50,7 +50,7 @@ public class StockInfoDao extends BaseDao {
 			conn = getConnection();
 			ps = conn.prepareStatement(sql);
 			int i = 1;
-			ps.setInt(i++, stock.getStockId());
+			ps.setString(i++, stock.getStockId());
 			ps.setDate(i++, stock.getRecentPickDate());
 			return ps.executeUpdate();
 		} finally {
@@ -58,7 +58,7 @@ public class StockInfoDao extends BaseDao {
 		}
 	}
 
-	public StockInfo getStockById(int stockId) throws Exception {
+	public StockInfo getStockById(String stockId) throws Exception {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -67,7 +67,7 @@ public class StockInfoDao extends BaseDao {
 			conn = getConnection();
 			ps = conn.prepareStatement(sql);
 			int i = 1;
-			ps.setInt(i++, stockId);
+			ps.setString(i++, stockId);
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				StockInfo stock = new StockInfo();

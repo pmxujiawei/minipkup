@@ -9,7 +9,7 @@ public class StockInfo implements Serializable {
 	 */
 	private static final long serialVersionUID = -4492275968684033135L;
 	// stockid
-	private int stockId;
+	private String stockId;
 	// stock名称
 	private String stockName;
 	// stock所属
@@ -35,11 +35,11 @@ public class StockInfo implements Serializable {
 		this.recentPickDate = recentPickDate;
 	}
 
-	public int getStockId() {
+	public String getStockId() {
 		return stockId;
 	}
 
-	public void setStockId(int stockId) {
+	public void setStockId(String stockId) {
 		this.stockId = stockId;
 	}
 

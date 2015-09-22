@@ -9,13 +9,13 @@ public class StockHistory {
 
 	private String stockId;
 
-	private Date date;
+	private Date businessDate;
 
 	private double openPrice;
 
-	private double maxPrice;
-
 	private double closePrice;
+
+	private double maxPrice;
 
 	private double minPrice;
 
@@ -31,12 +31,12 @@ public class StockHistory {
 		this.stockId = stockId;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getBusinessDate() {
+		return businessDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setBusinessDate(Date date) {
+		this.businessDate = date;
 
 	}
 
@@ -91,15 +91,16 @@ public class StockHistory {
 	@Override
 	public String toString() {
 		return "StockHistroy [stockId=" + stockId + ", date="
-				+ DateUtils.formatDate(date, "yyyy-MM-dd") + ", openPrice="
-				+ openPrice + ", maxPrice=" + maxPrice + ", closePrice="
-				+ closePrice + ", minPrice=" + minPrice + ", volume=" + volume
-				+ ", volumeMoney=" + volumeMoney + "]";
+				+ DateUtils.formatDate(businessDate, "yyyy-MM-dd")
+				+ ", openPrice=" + openPrice + ", maxPrice=" + maxPrice
+				+ ", closePrice=" + closePrice + ", minPrice=" + minPrice
+				+ ", volume=" + volume + ", volumeMoney=" + volumeMoney + "]";
 	}
 
 	public String formartObject() {
-		return stockId + "," + new SimpleDateFormat("yyyy-MM-dd").format(date)
-				+ "," + openPrice + "," + maxPrice + "," + closePrice + ","
+		return stockId + ","
+				+ new SimpleDateFormat("yyyy-MM-dd").format(businessDate) + ","
+				+ openPrice + "," + maxPrice + "," + closePrice + ","
 				+ minPrice + "," + volume + "," + volumeMoney;
 	}
 
